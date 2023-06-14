@@ -1,8 +1,7 @@
-import { Badge } from "@mui/icons-material"
-import {BsFillCartCheckFill} from "react-icons/bs"
 import styles from "./Navbar.module.css"
 
 import {Link} from "react-router-dom";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
   return (
@@ -14,11 +13,7 @@ const Navbar = () => {
 <Link to="/category/grabados">Grabados</Link>
  </ul>
 
-<Link to="/carrito">
-  <Badge badgeContent={3} color="secondary">
-    <BsFillCartCheckFill size="30px" />
-  </Badge>
-</Link>
+<CartWidget/>
     </div>
 </> 
  )

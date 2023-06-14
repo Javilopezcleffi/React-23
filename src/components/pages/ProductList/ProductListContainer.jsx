@@ -14,8 +14,8 @@ useEffect(() => {
         (product) => product.category ===categoryName
     );
 
-    const tarea = new Promise ((resolve) => {
-        resolve (categoryName ? productosFiltrados : products);
+    const tarea = new Promise ((res) => {
+        res (categoryName ? productosFiltrados : products);
 
         tarea
         .then((respuesta) => setItems (respuesta))

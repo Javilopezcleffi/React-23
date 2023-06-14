@@ -12,10 +12,7 @@ import {
    
     return (
       <Card sx={{ width: 345, height: 350, backgroundColor: "white" }}>
-        <CardMedia
-          sx={{ height: 140 }}
-          image={elemento.img}
-          title="green iguana"
+        <CardMedia sx={{ height: 140 }} image={elemento.img} title="green iguana"
         />
         <CardContent sx={{ height: 150 }}>
           <Typography
