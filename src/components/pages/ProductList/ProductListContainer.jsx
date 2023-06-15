@@ -14,20 +14,15 @@ useEffect(() => {
 
     const tarea = new Promise ((res) => {
         res (categoryName ? productosFiltrados : products);
-
+    }) 
         tarea
         .then((respuesta) => setItems (respuesta))
         .catch((rechazo) => {
             console.log(rechazo);
         });
-    }) 
+    
 
 }, [categoryName]);
-
-
-
-
-
 
 
 

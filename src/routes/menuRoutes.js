@@ -1,4 +1,6 @@
+import CartContainer from "../components/pages/cart/CartContainer";
 import ProductListContainer from "../components/pages/ProductList/ProductListContainer";
+import ProductDetailContainer from "../components/pages/productDetail/ProductDetailContainer";
 
 export const menuRoutes = [
 
@@ -11,12 +13,16 @@ export const menuRoutes = [
     {
         id: "carrito",
         path: "/carrito",
+        Element: CartContainer
+    },
+    {
+        id: "categories",
+        path: "/category/:categoryName",
         Element: ProductListContainer
     },
     {
-        id: "home",
-        path: "/category/:id",
-        Element: ProductListContainer
-    }
-
+        id: "itemDetail",
+        path: "/itemDetail/:id",
+        Element: ProductDetailContainer
+    },
 ]
