@@ -16,6 +16,6 @@ export const products = [
         stock: 1,
         description: "Pintura acrílica sobre papel",
         category: "pinturas",
-        img: "https://res.cloudinary.com/dgytv9apv/image/upload/v1686756726/gr2_pzwsz7.jpg"
+        img: "https://res.cloudinary.com/dgytv9apv/image/upload/v1686756726/gr2_tkaa7n.jpg"
     },
 ]

@@ -7,9 +7,12 @@ import {
     Typography,
   } from "@mui/material";
   import { Link } from "react-router-dom";
+
+
   
   const ProductCard = ({ elemento }) => {
-   
+
+
     return (
       <Card sx={{ width: 345, height: 350, backgroundColor: "white" }}>
         <CardMedia sx={{ height: 140 }} image={elemento.img} title="green iguana"

@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
-
-const CartContainer = ( cart, clearCart, removeById ) => {
-
-    useContext(CartContext);
-
+    import { useContext } from "react";
+    import { CartContext } from "../../../context/CartContext";
+    
+    const CartContainer = () => {
+      const { cart, clearCart, removeById } = useContext(CartContext);
+      
+    
 
     return (
         <div>
@@ -25,3 +25,5 @@ const CartContainer = ( cart, clearCart, removeById ) => {
     };
     
     export default CartContainer;
+
+    
