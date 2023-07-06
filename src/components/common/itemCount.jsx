@@ -1,3 +1,4 @@
+import { Button, Container, Typography } from "@mui/material";
 import { useCount } from "../hooks/useCount";
 
 export const ItemCount = ({ stock, initial, onAdd }) => {
@@ -5,13 +6,43 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className="count--container">
-        <button onClick={decrement}>-</button>
-        <span>{count}</span>
-        <button onClick={increment}>+</button>
+      <Container
+        style={{
+          marginTop: "20px",
+          marginBottom: "20px",
+          display: "flex",
+          justifyContent: "flex-start",
+          width: "50%",
+        }}
+      >
+        <Button
+          sx={{ width: 1 / 3 }}
+          variant="contained, outlined"
+          onClick={decrement}
+        >
+          -
+        </Button>
 
-        <button onClick={() => onAdd(count)}>Agregar al carrito</button>
-      </div>
+        <Typography variant="h6" sx={{ width: 1 / 3 }}>
+          {count}
+        </Typography>
+
+        <Button
+          sx={{ width: 1 / 3 }}
+          variant="contained, outlined"
+          onClick={increment}
+        >
+          +
+        </Button>
+      </Container>
+
+      <Button
+        sx={{ justifyContent: "center" }}
+        variant="contained"
+        onClick={() => onAdd(count)}
+      >
+        Agregar al carrito
+      </Button>
     </>
   );
 };

@@ -3,29 +3,31 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-// creo el componente proveedor del contexto
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const agregarAlCarrito = (newProduct) => {
-    // preguntar si existe
     let exist = isInCart(newProduct.id);
 
     if (exist) {
-      let newArray = cart.map( product => {
-        if(product.id === newProduct.id){
+      let newArray = cart.map((product) => {
+        if (product.id === newProduct.id) {
           return {
             ...product,
-            quantity: newProduct.quantity
-          }
-        }else{
-          return product
+            quantity: newProduct.quantity,
+          };
+        } else {
+          return product;
         }
-      })
-      setCart(newArray)
+      });
 
+      setCart(newArray);
+      localStorage.setItem("cart", JSON.stringify(newArray));
     } else {
       setCart([...cart, newProduct]);
+      localStorage.setItem("cart", JSON.stringify([...cart, newProduct]));
     }
   };
 
@@ -34,31 +36,43 @@ const CartContextProvider = ({ children }) => {
     let exist = cart.some((prod) => prod.id === id);
     return exist;
   };
+  // limpiar el carrito
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
+  // borrar un producto
+  const removeById = (id) => {
+    let newArray = cart.filter((product) => product.id !== id);
+    setCart(newArray);
+    localStorage.setItem("cart", JSON.stringify(newArray));
+  };
 
-  const clearCart = ()=>{
-    setCart( [] )
-  }
+  const getTotalQuantityById = (id) => {
+    let producto = cart.find((prod) => prod.id === +id);
+    console.log(producto?.quantity);
+    return producto?.quantity;
+  };
 
-  
-  
-  const removeById = ( id )=>{
-    let newArray = cart.filter( (product)=> product.id !== id )
-    setCart(newArray)
-  }
-  const getTotalQuantityById = (id)=>{
-      let producto = cart.find( prod => prod.id === +id)
-      console.log(producto?.quantity)
-      return producto?.quantity
-  }
+  const getTotalItems = () => {
+    let total = cart.reduce((acc, elemento) => {
+      return acc + elemento.quantity;
+    }, 0);
+    return total;
+  };
 
-
-
+  const getTotalPrice = () => {
+    let total = cart.reduce((acc, elemento) => {
+      return acc + elemento.quantity * elemento.price;
+    }, 0);
+    return total;
+  };
   let data = {
     cart,
     agregarAlCarrito,
     clearCart,
     removeById,
-    getTotalQuantityById
+    getTotalQuantityById,
   };
 
   return <CartContext.Provider value={data}> {children} </CartContext.Provider>;
