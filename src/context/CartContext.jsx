@@ -73,6 +73,8 @@ const CartContextProvider = ({ children }) => {
     clearCart,
     removeById,
     getTotalQuantityById,
+    getTotalItems,
+    getTotalPrice,
   };
 
   return <CartContext.Provider value={data}> {children} </CartContext.Provider>;
