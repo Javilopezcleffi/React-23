@@ -38,14 +38,14 @@ const ProductListContainer = () => {
     return (
       <div
         style={{
-          width: "100%",
-          height: "90vh",
+          margin: 3,
+          minHeight: "90vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <GridLoader color="gray" width={40} height={111} />
+        <GridLoader color="gray" />
       </div>
     );
   }
@@ -53,13 +53,6 @@ const ProductListContainer = () => {
   return (
     <div>
       <ProductList items={items} />
-      {/* {items.length > 0 ? (
-        <ProductsList items={items} />
-      ) : (
-        <ScaleLoader cssOverride={objetoLoader} color="#36d7b7" />
-      )} */}
-
-      {/* {items.length > 0 && <ProductsList items={items} />} */}
     </div>
   );
 };

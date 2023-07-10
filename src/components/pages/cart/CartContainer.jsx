@@ -4,11 +4,11 @@ import Swal from "sweetalert2";
 import Cart from "./Cart";
 
 const CartContainer = () => {
-  const { cart, clearCart, removeById, GetTotalPrice } =
+  const { cart, clearCart, removeById, getTotalPrice } =
     useContext(CartContext);
 
-  let total = GetTotalPrice();
- 
+  let total = getTotalPrice();
+
   const limpiar = () => {
     Swal.fire({
       title: "Seguro quieres limpiar el carrito?",

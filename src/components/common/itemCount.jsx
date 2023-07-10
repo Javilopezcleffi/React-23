@@ -16,19 +16,19 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
         }}
       >
         <Button
-          sx={{ width: 1 / 3 }}
+          sx={{ width: 1 / 3, border: 1, borderColor: "#8b00ff" }}
           variant="contained, outlined"
           onClick={decrement}
         >
           -
         </Button>
 
-        <Typography variant="h6" sx={{ width: 1 / 3 }}>
+        <Typography variant="h6" sx={{ width: 1 / 3, textAlign: "center" }}>
           {count}
         </Typography>
 
         <Button
-          sx={{ width: 1 / 3 }}
+          sx={{ width: 1 / 3, border: 1, borderColor: "#8b00ff" }}
           variant="contained, outlined"
           onClick={increment}
         >
@@ -37,7 +37,10 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
       </Container>
 
       <Button
-        sx={{ justifyContent: "center" }}
+        sx={{
+          justifyContent: "center",
+          background: "linear-gradient(to right, #430089, #8b00ff )",
+        }}
         variant="contained"
         onClick={() => onAdd(count)}
       >

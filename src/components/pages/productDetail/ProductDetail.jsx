@@ -27,6 +27,8 @@ const ProductDetail = ({ productSelected }) => {
             alt={productSelected.title}
           />
           <h2>{productSelected.title}</h2>
+          <h5> {productSelected.description} </h5>
+          <h5> Por {productSelected.by} </h5>
         </Card>
         <Box sx={{ maxWidth: 1 / 2 }}>
           {productSelected.stock > 0 ? (
@@ -36,7 +38,7 @@ const ProductDetail = ({ productSelected }) => {
               onAdd={onAdd}
             />
           ) : (
-            <h3>No hay stock</h3>
+            <h3>...</h3>
           )}
         </Box>
       </Container>

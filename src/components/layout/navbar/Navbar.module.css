@@ -1,14 +1,20 @@
 .containerNavbar {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin: 2%;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2%;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 .categories {
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 20px;
-text-transform: uppercase;}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;
+}

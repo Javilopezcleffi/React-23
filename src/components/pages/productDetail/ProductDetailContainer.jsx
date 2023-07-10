@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../firebaseconfig";
 import { collection, getDoc, doc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
@@ -14,6 +15,22 @@ const ProductDetailContainer = () => {
 
   const cantidad = getTotalQuantityById(id);
   console.log("la cantidad es: ", cantidad);
+  const onAdd = (cantidad) => {
+    let data = {
+      ...productSelected,
+      quantity: cantidad,
+    };
+
+    agregarAlCarrito(data);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Agregado",
+      showConfirmButton: true,
+      timer: 1500,
+      width: 300,
+    });
+  };
 
   useEffect(() => {
     let itemCollection = collection(db, "products");
@@ -28,6 +45,7 @@ const ProductDetailContainer = () => {
       cantidad={cantidad}
       productSelected={productSelected}
       agregarAlCarrito={agregarAlCarrito}
+      onAdd={onAdd}
     />
   );
 };
