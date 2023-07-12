@@ -4,8 +4,8 @@
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
   background-color: rgb(228, 228, 228);
+  justify-content: center;
+  padding:30px;
   min-height: 100vh;
 }

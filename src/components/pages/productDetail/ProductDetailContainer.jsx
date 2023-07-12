@@ -15,6 +15,7 @@ const ProductDetailContainer = () => {
 
   const cantidad = getTotalQuantityById(id);
   console.log("la cantidad es: ", cantidad);
+  
   const onAdd = (cantidad) => {
     let data = {
       ...productSelected,
@@ -22,14 +23,6 @@ const ProductDetailContainer = () => {
     };
 
     agregarAlCarrito(data);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Agregado",
-      showConfirmButton: true,
-      timer: 1500,
-      width: 300,
-    });
   };
 
   useEffect(() => {

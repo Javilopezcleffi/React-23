@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import { Box } from "@mui/material";
-import shadows from "@mui/material/styles/shadows";
+import { menuNavigate } from "../../../routes/menuNavigate";
 
 const Navbar = () => {
   return (
@@ -11,8 +11,6 @@ const Navbar = () => {
       <Box
         className={styles.containerNavbar}
         sx={{
-          width: "100%",
-          height: "auto",
           background: "linear-gradient(to right, #430089, #82ffa1)",
           paddingTop: "1rem",
           paddingBottom: "1rem",
@@ -25,9 +23,11 @@ const Navbar = () => {
           <Link to="/"> Galería Virtual</Link>
         </Box>
         <ul className={styles.categories}>
-          <Link to="/">Todos</Link>
-          <Link to="/category/pinturas">Pinturas</Link>
-          <Link to="/category/grabados">Grabados</Link>
+          {menuNavigate.map(({ id, path, title }) => (
+            <Link key={id} to={path}>
+              {title}
+            </Link>
+          ))}
         </ul>
 
         <CartWidget />

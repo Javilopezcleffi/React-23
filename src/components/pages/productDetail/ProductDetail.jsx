@@ -13,7 +13,7 @@ const ProductDetail = ({ productSelected }) => {
       quantity: cantidad,
     };
 
-    agregarAlCarrito();
+    agregarAlCarrito(data);
   };
 
   return (
@@ -38,7 +38,7 @@ const ProductDetail = ({ productSelected }) => {
               onAdd={onAdd}
             />
           ) : (
-            <h3>...</h3>
+            <h4>no hay stock</h4>
           )}
         </Box>
       </Container>
