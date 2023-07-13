@@ -7,15 +7,14 @@ import { Container } from "@mui/system";
 const ProductDetail = ({ productSelected }) => {
   const { agregarAlCarrito } = useContext(CartContext);
 
-  const onAdd = (cantidad) => {
+  const onAdd = (quantity) => {
     let data = {
       ...productSelected,
-      quantity: cantidad,
     };
-
-    agregarAlCarrito(data);
+    console.log(quantity);
+    agregarAlCarrito(data, quantity);
   };
-
+  
   return (
     <>
       <Container sx={{ flexDirection: "row", justifyContent: "center" }}>

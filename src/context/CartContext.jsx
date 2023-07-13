@@ -8,26 +8,25 @@ const CartContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cart")) || []
   );
 
-  const agregarAlCarrito = (newProduct) => {
-    let exist = isInCart(newProduct.id);
-
-    if (exist) {
-      let newArray = cart.map((product) => {
-        if (product.id === newProduct.id) {
-          return {
-            ...product,
-            quantity: newProduct.quantity,
-          };
-        } else {
-          return product;
+  const agregarAlCarrito = (newProduct, quantity) => {
+    //crear un nuevo objeto con los datos que recibimos
+    const newObj = {
+      ...newProduct,
+      quantity,
+    };
+    // chequear si el producto ya está en el carrito
+    if (isInCart(newObj.id)) {
+      // si está, vamos a hacer un map y sumar las cantidades, así no duplicamos
+      let newArray = cart.map((el) => {
+        if (el.id === newObj.id) {
+          el.quantity += newObj.quantity;
         }
+        return el;
       });
-
-      setCart(newArray);
       localStorage.setItem("cart", JSON.stringify(newArray));
+      // si es un producto que no está en el carrito, lo va a agregar.
     } else {
-      setCart([...cart, newProduct]);
-      localStorage.setItem("cart", JSON.stringify([...cart, newProduct]));
+      setCart([...cart, newObj]);
     }
   };
 
@@ -50,7 +49,6 @@ const CartContextProvider = ({ children }) => {
 
   const getTotalQuantityById = (id) => {
     let producto = cart.find((prod) => prod.id === +id);
-    console.log(producto?.quantity);
     return producto?.quantity;
   };
 
