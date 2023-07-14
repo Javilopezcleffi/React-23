@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../firebaseConfig";
 import { collection, getDoc, doc } from "firebase/firestore";
 
 const ProductDetailContainer = () => {
@@ -18,11 +18,7 @@ const ProductDetailContainer = () => {
     });
   }, [id]);
 
-  return (
-    <ProductDetail
-      productSelected={productSelected}
-    />
-  );
+  return <ProductDetail productSelected={productSelected} />;
 };
 
 export default ProductDetailContainer;
