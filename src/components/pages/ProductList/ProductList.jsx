@@ -1,4 +1,4 @@
-import ProductCard from "../../common/productCard/comp2pc";
+import ProductCard from "../../common/productCard/ProductCard";
 import "./ProductList.css";
 
 const ProductList = ({ items }) => {
