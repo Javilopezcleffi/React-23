@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import { useParams } from "react-router";
-import { db } from "../../../firebaseconfig";
+import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { GridLoader } from "react-spinners";
 
