@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../firebaseconfig";
 import { collection, getDoc, doc } from "firebase/firestore";
-import Swal from "sweetalert2";
 
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});

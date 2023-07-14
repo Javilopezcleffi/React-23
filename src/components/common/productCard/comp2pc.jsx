@@ -1,4 +1,3 @@
-import { Rowing } from "@mui/icons-material";
 import {
   Button,
   Card,

@@ -1,4 +1,4 @@
-import ProductCard from "../../common/productCard/productCard";
+import ProductCard from "../../common/productCard/comp2pc";
 import "./ProductList.css";
 
 const ProductList = ({ items }) => {
@@ -12,3 +12,4 @@ const ProductList = ({ items }) => {
 };
 
 export default ProductList;
+ser
